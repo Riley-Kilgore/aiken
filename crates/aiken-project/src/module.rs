@@ -1,7 +1,7 @@
 use crate::{Error, Warning};
 use aiken_lang::{
     ast::{
-        DataType, DataTypeKey, Definition, Function, FunctionAccessKey, Located, ModuleKind,
+        DataType, DataTypeKey, Definition, Function, FunctionAccessKey, Located, ModuleKind, Span,
         Tracing, TypedDataType, TypedFunction, TypedModule, TypedValidator, UntypedModule,
         Validator,
     },
@@ -434,6 +434,31 @@ impl CheckedModule {
                 _ => (),
             }
         }
+    }
+
+    // pub fn build_environment(&self) -> Environment {
+    // let mut env = Environment::new();
+    // // Populate env with symbols from self.ast
+    // for definition in &self.ast.definitions {
+    // match definition {
+    // Definition::Function(func) => {
+    // env.add_function(func.name.clone(), func.clone());
+    // }
+    // Definition::Type(type_def) => {
+    // env.add_type(type_def.name.clone(), type_def.clone());
+    // }
+    // Definition::Validator(validator) => {
+    // env.add_validator(validator.name.clone(), validator.clone());
+    // } // Add other definition types as needed
+    // }
+    // }
+    // // Update symbol_references in env
+    // env.update_symbol_references(&self.ast);
+    // env
+    // }
+
+    pub fn find_references(&self, node: Located<'_>) -> Vec<Span> {
+        aiken_lang::tipo::find_references(&self.ast, node)
     }
 }
 

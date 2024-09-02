@@ -1,8 +1,8 @@
 use self::{environment::Environment, pretty::Printer};
 use crate::{
     ast::{
-        well_known, Annotation, DataType, DataTypeKey, DefinitionLocation, ModuleKind, Span,
-        TypedDataType,
+        well_known, Annotation, DataType, DataTypeKey, DefinitionLocation, Located, ModuleKind,
+        Span, TypedDataType, TypedModule,
     },
     tipo::fields::FieldMap,
 };
@@ -721,6 +721,15 @@ pub fn get_arg_type_name(tipo: &Type) -> String {
         }
         _ => unreachable!(),
     }
+}
+
+pub fn find_references(ast: &TypedModule, node: Located<'_>) -> Vec<Span> {
+    let mut references = Vec::new();
+
+    // Implement reference finding logic here
+    // This will involve traversing the AST and matching nodes
+
+    references
 }
 
 pub fn convert_opaque_type(

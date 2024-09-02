@@ -87,6 +87,9 @@ pub struct Environment<'a> {
 
     /// Warnings
     pub warnings: &'a mut Vec<Warning>,
+
+    /// Symbol references
+    pub symbol_references: HashMap<String, Vec<Span>>,
 }
 
 impl<'a> Environment<'a> {
@@ -793,6 +796,7 @@ impl<'a> Environment<'a> {
             warnings,
             entity_usages: vec![HashMap::new()],
             target_env,
+            symbol_references: HashMap::new(),
         }
     }
 
