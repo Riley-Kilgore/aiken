@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.0 - UNRELEASED
+## v1.1.0 - 2024-09-03
 
 ### Added
 
@@ -25,6 +25,8 @@
 - **aiken-project**: comments containing Markdown section headings (`#`, `##`, `###` etc.) will now be preserved and rendered in generated documentation. @KtorZ
 
 - **aiken-project**: modules starting with `@hidden` in their docs will be skipped from docs generation. @KtorZ
+
+- **aiken-project**: preserve type-aliases as titles in blueprint generated schemas. @KtorZ
 
 - **uplc**: support evaluation of Plutus V3 transactions, including new purposes introduced in Conway. @KtorZ
 
